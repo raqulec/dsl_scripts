@@ -1,2 +1,2 @@
 # dsl_scripts
-A Jenkins Job DSL scripts that generate pipelines
+A Jenkins DSL scripts that generate pipelines
