@@ -15,17 +15,13 @@ job('HerokuDeployTest') {
               	credentials('8b9ee92e-1e57-48c4-a8fd-18adddfdec3b')
             }
             branch('*/master')
-            extensions {
-                mergeOptions {
-                    remote('github')
-                    branch('master')
-                }
-            }
         }
     }
 	publishers {
 		git {
             pushOnlyIfSuccess()
+			forcePush()
+			branch('heroku', 'master')
         }
     }
 }
