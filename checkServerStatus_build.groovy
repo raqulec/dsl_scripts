@@ -1,11 +1,10 @@
-job('CheckServerStatusTest') {
+job('CheckServerStatus') {
     steps {
         httpRequest('https://address-generator.herokuapp.com/') {
             httpMode('GET')
-            logResponseBody()
         }
     }
 	triggers {
-		upstream('DelayTest', 'SUCCESS')
+		upstream('Delay', 'SUCCESS')
 	}
 }

@@ -1,6 +1,6 @@
-job('DelayTest') {
-    quietPeriod(60)
+job('Delay') {
+    quietPeriod(5)
 	triggers {
-		upstream('HerokuDeployTest', 'SUCCESS')
+		upstream('HerokuDeploy', 'SUCCESS')
 	}
 }

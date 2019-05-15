@@ -1,4 +1,4 @@
-job('HerokuDeployTest') {
+job('HerokuDeploy') {
     properties {
         githubProjectUrl('https://github.com/raqulec/address_generator/')
     }
@@ -7,12 +7,12 @@ job('HerokuDeployTest') {
             remote {
                 name('github')
                 url('https://github.com/raqulec/address_generator.git')
-              	credentials('6c445d57-6093-42c7-bd66-d4111e938172')
+              	credentials('GITHUB')
             }
             remote {
                 name('heroku')
                 url('https://git.heroku.com/address-generator.git')
-              	credentials('8b9ee92e-1e57-48c4-a8fd-18adddfdec3b')
+              	credentials('HEROKU')
             }
             branch('*/master')
         }
@@ -20,7 +20,6 @@ job('HerokuDeployTest') {
 	publishers {
 		git {
             pushOnlyIfSuccess()
-			forcePush()
 			branch('heroku', 'master')
         }
     }
