@@ -1,7 +1,4 @@
 job('HerokuDeploy') {
-    properties {
-        githubProjectUrl('https://github.com/raqulec/address_generator/')
-    }
 	scm {
         git {
             remote {
@@ -19,7 +16,6 @@ job('HerokuDeploy') {
     }
 	publishers {
 		git {
-            pushOnlyIfSuccess()
 			branch('heroku', 'master')
         }
     }

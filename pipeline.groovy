@@ -1,8 +1,18 @@
-deliveryPipelineView('HerokuBuild') {
-    pipelineInstances(3)
-    columns(2)
-    updateInterval(2)
-    pipelines {
-        component('HerokuBuild', 'HerokuDeploy')
+pipelineJob("HerokuBuild") {
+    definition {
+        cps {
+            sandbox()
+            script("""
+                stage('HerokuDeploy') {
+                    build 'HerokuDeploy'
+                }
+                stage('Delay') {
+                    build 'Delay'
+                }
+                stage('CheckServerStatus') {
+                    build 'CheckServerStatus'
+                }
+            """.stripIndent())     
+        }
     }
 }

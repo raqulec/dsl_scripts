@@ -4,7 +4,4 @@ job('CheckServerStatus') {
             httpMode('GET')
         }
     }
-	triggers {
-		upstream('Delay', 'SUCCESS')
-	}
 }
